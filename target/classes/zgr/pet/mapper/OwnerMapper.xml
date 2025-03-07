@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zgr.pet.mapper.OwnerMapper">
+
+    <!--批量删除宠物-->
+    <delete id="delete">
+        delete
+        from owner
+        where ownerId in
+        <foreach collection="id" item="ownerId" separator="," open="(" close=")">
+            #{ownerId}
+        </foreach>
+    </delete>
+
+</mapper>
